@@ -6,7 +6,7 @@
 using namespace std;
 
 int main() {
-    int option;
+    char option;
     vector<vector<string>> hotel(9, vector<string>(4));
 
     // Initialisation des chambres
@@ -36,7 +36,7 @@ int main() {
         cout << "6. Trouver une reservation." << endl;
         cout << "7. Echanger chambres." << endl;
         cout << "8. Trier las reservations." << endl;
-        cout << "9. Statistique (% de chambres occupes." << endl;
+        cout << "9. Statistique (% de chambres occupes)." << endl;
         cout << "0. Quitter." << endl;
 
         cout << "-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-";
@@ -45,17 +45,19 @@ int main() {
         cin >> option;
         cout << "\n";
         
-        if (option == 0) {
+        if (option == '0') {
             string resposta;
-            cout << "Voce tem certeza que quer sair? (oui/non): ";
+            cout << "Etes-vous sur de vouloir quitter?? (oui/non): ";
             cin >> resposta;
 
-            if (resposta == "oui") {
+            if (resposta == "oui" || resposta == "OUI") {
                 // Confirma a saida
                 option = 0; // aqui nao precisa fazer mais nada, pois ja confirmou a saida.
             }
-            else if (resposta == "non") {
+            else if (resposta == "non" || resposta == "NON") {
                 // aqui, caso se arrependa de sair
+                cout << "\nVous serez a nouveau dirige vers le menu principal.\n\n";
+                system("pause");
                 option = 10; // entra na opção 10 que é invisivel, so com o break.
             }
             else{
@@ -65,9 +67,10 @@ int main() {
             }
         }
         system("cls");
+        
 
         switch (option) {
-        case 1:
+        case '1':
             cout << "Creer une reservation " << endl;
             creation(hotel);
             cout << endl;
@@ -77,7 +80,7 @@ int main() {
             
             break;
 
-        case 2:
+        case '2':
             cout << "Annuler reservation." << endl;
             annulation(hotel);
             cout << endl;
@@ -86,7 +89,7 @@ int main() {
 
             break;
 
-        case 3:
+        case '3':
             cout << "Modifier la reservation" << endl;
             chanres(hotel);
             cout << endl;
@@ -95,7 +98,7 @@ int main() {
 
             break;
 
-        case 4:
+        case '4':
             cout << "Modifier client de chambre" << endl;
             changechambre(hotel);
             cout << endl;
@@ -104,14 +107,14 @@ int main() {
 
             break;
 
-        case 5:
+        case '5':
             
             cout << "Liste des chambres" << endl;
             liste(hotel);
             system("pause");            
             break;
 
-        case 6:
+        case '6':
             
             cout << "Trouver une reservation" << endl;
             trouver(hotel);
@@ -121,17 +124,31 @@ int main() {
 
             break;
 
-        case 7:
+        case '7':
             
-            cout << "Echanger" << endl;
+            cout << "Echanger les chambres des reservations" << endl;
+            echanResChambres(hotel);
+            cout << endl;
+            system("pause");
+            system("cls");
+
             break;
-        case 8:
+        case '8':
             
-            cout << "Trier" << endl;
+            cout << "Trier pour une reservation" << endl;
+            croissantDecroissant(hotel);
+            cout << endl;
+            system("pause");
+            system("cls");
             break;
-        case 9:
+        case '9':
             
-            cout << "Statistique" << endl;
+            cout << "Statistique de chambres " << endl;
+            statsRes(hotel);
+            cout << endl;
+            system("pause");
+            system("cls");
+
             break;
             
         case 10:
@@ -145,6 +162,7 @@ int main() {
             break;
         default:
             cout << "\nOption invalide. Essayer a nouveau.\n";
+            break;
         }
     } while (option != 0);
 
