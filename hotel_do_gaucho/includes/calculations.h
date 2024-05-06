@@ -4,6 +4,8 @@
 #include <string>
 using namespace std;
 
+//Voici les signatures des fonctions créées dans l'onglet Calculs.cpp
+//Chaque fonction a sa propre signature.
 
 bool creation(vector<vector<string> >& hotel);
 

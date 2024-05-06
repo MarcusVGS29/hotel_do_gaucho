@@ -7,32 +7,32 @@ using namespace std;
 
 int main() {
     char option;
-    vector<vector<string>> hotel(9, vector<string>(4));
+    vector<vector<string>> hotel(9, vector<string>(4)); //creation de vector pour l'hotel
 
     // Initialisation des chambres
     int ncham = 101;
     for (int i = 0; i < 9; ++i) {
 
-        hotel[i][0] = to_string(ncham);
+        hotel[i][0] = to_string(ncham); 
         hotel[i][1] = "-";
         hotel[i][2] = "-";
         hotel[i][3] = "Non";
         ncham++;
     }
-    cout << "\nHotel du Gaucho - Etage 1\n";
+    /*cout << "\nHotel du Gaucho - Etage 1\n";
     for (int i = 0; i < 9; ++i) {
         cout << "Chambre: " << hotel[i][0] << ", " << hotel[i][1] << hotel[i][2] << " " << hotel[i][3] << endl;
 
-    }
+    }*/
     do {
         cout <<"\nHotel du Gaucho.\nOu vous vivrez des experiences du sud du Bresil.";
         cout << "\n-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\n";
         cout << "Menu des Options:" << endl;
-        cout << "1. Creer reservation." << endl;
-        cout << "2. Annuler reservation." << endl;
-        cout << "3. Modifier la reservation." << endl;
-        cout << "4. Modifier le chambre." << endl;
-        cout << "5. Liste de chambres." << endl;
+        cout << "1. Creer une reservation." << endl;
+        cout << "2. Annuler une reservation." << endl;
+        cout << "3. Changer le proprietaire de la reservation." << endl;
+        cout << "4. Changer la reservation de la chambre." << endl;
+        cout << "5. Afficher les chambres reservees." << endl;
         cout << "6. Trouver une reservation." << endl;
         cout << "7. Echanger chambres." << endl;
         cout << "8. Trier las reservations." << endl;
@@ -102,6 +102,7 @@ int main() {
             cout << "Modifier client de chambre" << endl;
             changechambre(hotel);
             cout << endl;
+
             system("pause");
             system("cls");
 
@@ -111,7 +112,9 @@ int main() {
             
             cout << "Liste des chambres" << endl;
             liste(hotel);
+
             system("pause");            
+
             break;
 
         case '6':
@@ -119,6 +122,7 @@ int main() {
             cout << "Trouver une reservation" << endl;
             trouver(hotel);
             cout << endl;
+
             system("pause");
             system("cls");
 
@@ -129,6 +133,7 @@ int main() {
             cout << "Echanger les chambres des reservations" << endl;
             echanResChambres(hotel);
             cout << endl;
+
             system("pause");
             system("cls");
 
@@ -138,8 +143,10 @@ int main() {
             cout << "Trier pour une reservation" << endl;
             croissantDecroissant(hotel);
             cout << endl;
+
             system("pause");
             system("cls");
+
             break;
         case '9':
             
@@ -151,7 +158,8 @@ int main() {
 
             break;
             
-        case 10:
+        case 10: //Cette option a été créée pour que, lorsqu'il y a une erreur dans le menu, 
+                 //le programme soit dirigé ici et revienne ensuite au menu principal.
             break;
 
         case 0:
